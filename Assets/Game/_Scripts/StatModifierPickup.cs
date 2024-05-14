@@ -10,17 +10,14 @@ namespace SDurlanik.BrokerChain
             Multiply
         }
 
-        [SerializeField] private StatType type = StatType.Attack;
-        [SerializeField] private OperatorType operatorType = OperatorType.Add;
-        [SerializeField] private int value = 10;
-        [SerializeField] private float duration = 5;
+        [SerializeField] private StatModifierData data;
 
         protected override void ApplyPickupEffect(Entity entity)
         {
-            StatModifier modifier = operatorType switch
+            StatModifier modifier = data.operatorType switch
             {
-                OperatorType.Add => new BasicStatModifier(type, duration, x => x + value),
-                OperatorType.Multiply => new BasicStatModifier(type, duration, x => x * value),
+                OperatorType.Add => new BasicStatModifier(data.type, data.duration, x => x + data.value),
+                OperatorType.Multiply => new BasicStatModifier(data.type, data.duration, x => x * data.value),
                 _ => throw new System.ArgumentOutOfRangeException()
             };
 
