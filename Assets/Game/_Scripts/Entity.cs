@@ -21,6 +21,7 @@ namespace SDurlanik.BrokerChain
         private void Awake()
         {
             Stats = new Stats(new StatsMediator(), baseStats);
+            Debug.Log(Stats.ToString());
         }
 
         public void Update()

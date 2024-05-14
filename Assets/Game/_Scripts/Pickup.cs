@@ -18,6 +18,7 @@ namespace SDurlanik.BrokerChain
         {
             if (other.TryGetComponent(out IVisitable visitable))
             {
+                Debug.Log($"Pickup collected: {gameObject.name}");
                 visitable.Accept(this);
                 Destroy(gameObject);
             }

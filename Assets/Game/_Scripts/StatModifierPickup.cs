@@ -25,6 +25,9 @@ namespace SDurlanik.BrokerChain
             };
 
             entity.Stats.Mediator.AddModifier(modifier);
+
+            Debug.Log(entity.Stats.ToString());
+            modifier.OnDispose += _ => Debug.Log(entity.Stats.ToString());
         }
     }
 }
